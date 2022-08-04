@@ -1,0 +1,71 @@
+CASE
+=====
+SELECT column
+       CASE 
+       WHEN CONDITION THEN result1
+       WHEN CONDITION THEN result2
+       WHEN CONDITION THEN result3
+       ELSE others AS ALIAS
+       END
+       FROM TABLE_NAME
+       
+  example 1:
+    SLECT a 
+            CASE
+                WHEN a=1 then 'One'
+                WHEN a=2 then 'Two'
+                ELSE 'no result' AS result
+             END
+             FROM TEST;     
+       
+CASE EXPRESSION
+===============
+SELECT column
+       CASE column
+       WHEN match1 THEN result1
+       WHEN match2 THEN result2
+       ELSE others AS ALIAS
+       END
+       FROM TABLE_NAME       
+ 
+ 
+ example :
+    SLECT a 
+            CASE a
+                WHEN 1 then 'One'
+                WHEN 2 then 'Two'
+                ELSE 'no result' AS result
+             END
+             FROM TEST;
+             
+
+             
+             
+ SELECT * FROM FILM  
+ 
+ --Compare various amounts of films we have per movie rating.     
+
+SELECT 
+    SUM(CASE rating
+            WHEN 'R' THEN 1
+            ELSE 0 
+        END ) AS r ,
+        
+    SUM(CASE rating 
+            WHEN 'PG' THEN 1
+            ELSE 0
+        END )AS pg,
+    SUM(CASE rating 
+            WHEN 'PG-13' THEN 1
+            ELSE 0
+        END) AS pg13
+    
+   FROM FILM;
+
+
+-----
+COALESCE
+CAST
+NULLIF
+
+
